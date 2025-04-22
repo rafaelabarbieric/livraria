@@ -6,4 +6,4 @@ class Autor(models.Model):
     email = models.EmailField(max_length=100)
 
     def __str__(self):
-        return f"{self.nome.title()} {self.email}"
+        return f"{self.nome.title()} "
