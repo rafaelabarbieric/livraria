@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django_filters',
     'drf_spectacular',
     'rest_framework',
+    'uploader',
     'core',
 ]
 
@@ -108,7 +109,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # App Uploader settings
 MEDIA_ENDPOINT = '/media/'
@@ -118,6 +119,7 @@ FILE_UPLOAD_PERMISSIONS = 0o640
 if MODE == 'DEVELOPMENT':
     MY_IP = os.getenv('MY_IP', '127.0.0.1')
     MEDIA_URL = f'http://{MY_IP}:19003/media/'
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 else:
     MEDIA_URL = '/media/'
     CLOUDINARY_URL = os.getenv('CLOUDINARY_URL')
